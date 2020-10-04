@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ======== Launch Action Employee Registers Report ======== -->
+        <record id="action_employee_registers_report" model="ir.actions.client">
+            <field name="name">Employee Registers</field>
+            <field name="tag">employee_registers_report</field>
+        </record>
+
+<!--        <report-->
+<!--            id="employee_registers_xlsx"-->
+<!--            model="hr.employee"-->
+<!--            string="Employee Registers"-->
+<!--            report_type="xlsx"-->
+<!--            name="b2b_hr_employee_report.employee_registers_xlsx"-->
+<!--            file="employee_registers"-->
+<!--            attachment_use="False"-->
+<!--        />-->
+
+    <!-- ======== Launch menu HR ======== -->
+    <menuitem id="menu_hr_employee_registers"
+              name="Employee Registers"
+              sequence="1"
+              parent="hr.hr_menu_hr_reports"
+              action="action_employee_registers_report"/>
+
+
+</odoo>
