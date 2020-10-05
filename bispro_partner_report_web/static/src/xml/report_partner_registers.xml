@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# -*- encoding: utf-8 -*-
+# Author: BISPRO
+-->
+<templates xml:space="preserve">
+    <t t-name="PartnerRegistersMain">
+        <div class="B2B_ReportMain">
+            <div class="B2B_ReportFiltersSection">
+                <!--<t t-call="UserFilters"/>-->
+            </div>
+
+            <div id="loader">
+              <div id="top"/>
+              <div id="bottom"/>
+              <div id="line"/>
+            </div>
+
+            <div class="B2B_ControlSection">
+                <!--<t t-call="ControlButtons"/>-->
+            </div>
+            <div class="B2B_ReportDataSection">
+                <!--<t t-call="AccountContents"/>-->
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PartnerRegistersControlButtons">
+        <div class="control_buttons_pl">
+            <div class="row filter-row px-3">
+                <div class="col-sm-4" align="center">
+                    <button id="filter_button" type="button" class="btn btn-success"><span class="fa fa-filter"/> Filter</button>
+                    <button id="apply_button" type="button" class="btn btn-success"><span class="fa fa-arrow-down"/> Apply</button>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PartnerRegistersUserFilters">
+        <div class="b2b_base_report_filter">
+        </div>
+    </t>
+
+    <t t-name="PartnerTags">
+        <div class="row filter-row">
+            <div class="col-sm-2">
+                <p><b>Contact Tags</b></p>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                    <select class="partner-category-multiple" name="states[]" multiple="multiple">
+                        <t t-foreach="categories" t-as="category">
+                            <option t-attf-value="{{category.id}}"><t t-esc="category.name"/></option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="PartnerType">
+        <div class="row filter-row">
+            <div class="col-sm-2">
+                <b>Activation</b>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label">
+                      <input class="form-check-input" type="radio" name="activation" id="active" value="option1" checked="1">Active</input>
+                      <input class="form-check-input" type="radio" name="activation" id="in_active" value="option2">Inactive</input>
+                  </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <b>Partner Type</b>
+            </div>
+            <div class="col-sm-4">
+                <select class="dynamic-type-multiple" name="states[]">
+                    <option value="all">All</option>
+                    <option value="customer">Customer Only</option>
+                    <option value="supplier">Supplier Only</option>
+                </select>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="PartnerRegistersContents">
+        <t t-set="lines" t-value="widget.result.lines"/>
+        <t t-set="data" t-value="widget.result.data"/>
+        <t t-log="data"/>
+        <div class="cont">
+            <div class="b2b_base_report_header">
+                <div class="row my-2">
+                    <div class="col-xs-12" align="center">
+                        <h2>PARTNER REGISTERS (BISPRO.VN)</h2>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-xs-6">
+                        <p>
+                            <strong>Activation:</strong>
+                            <span t-if="data['form']['activate_flag'] == 'All'">All</span>
+                            <span t-if="data['form']['activate_flag'] == 'Active'">Active Only</span>
+                            <span t-if="data['form']['activate_flag'] == 'Inactive'">Inactive Only</span><br/>
+                        </p>
+                    </div>
+                    <div class="col-xs-6">
+                        <p>
+                            <strong>Partner Type:</strong>
+                            <span t-if="data['form']['partner_type'] === 'all'">All Customer and Supplier</span>
+                            <span t-if="data['form']['partner_type'] === 'customer'">Customer Only</span>
+                            <span t-if="data['form']['partner_type'] === 'supplier'">Supplier Only</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-table-container">
+                <table class="table table-striped table-hover scroll-table">
+                    <thead class="table_header_thead">
+                        <tr>
+                            <th/>
+                            <th>Code</th>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Province</th>
+                            <th>Country</th>
+                            <th>Tax Registry</th>
+                            <th>Category</th>
+                            <th>Phone</th>
+                            <th>Mobile</th>
+                            <th>Sale Team</th>
+                            <th>Supplier</th>
+                            <th>Customer</th>
+                            <th>Activation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="lines" t-as="line">
+                            <tr>
+                                <td border="1"/>
+                                <td><t t-esc="line['code']"/></td>
+                                <td><t t-esc="line['full_name']"/></td>
+                                <td><t t-esc="line['address']"/></td>
+                                <td><t t-esc="line['city']"/></td>
+                                <td><t t-esc="line['province']"/></td>
+                                <td><t t-esc="line['country']"/></td>
+                                <td><t t-esc="line['vat']"/></td>
+                                <td><t t-esc="line['category']"/></td>
+                                <td><t t-esc="line['phone']"/></td>
+                                <td><t t-esc="line['mobile']"/></td>
+                                <td><t t-esc="line['team']"/></td>
+                                <td align="center">
+                                    <t t-if="line['supplier_rank'] > 0"><span class="fa fa-check-square-o"/></t>
+                                    <t t-if="line['supplier_rank'] == 0"><span class="fa fa-square-o"/></t>
+                                </td>
+                                <td align="center">
+                                    <t t-if="line['customer_rank'] > 0"><span class="fa fa-check-square-o"/></t>
+                                    <t t-if="line['customer_rank'] == 0"><span class="fa fa-square-o"/></t>
+                                </td>
+                                <td><t t-esc="line['activate_flag']"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </t>
+</templates>

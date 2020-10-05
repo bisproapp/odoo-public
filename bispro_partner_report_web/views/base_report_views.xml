@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ======== Launch Action Partner Registers Report ======== -->
+        <record id="action_partner_registers_report" model="ir.actions.client">
+            <field name="name">Partner Registers</field>
+            <field name="tag">partner_registers_report</field>
+        </record>
+
+    <!-- ======== Launch menu Sales ======== -->
+    <menuitem id="menu_bispro_sale_reports" name="Bispro Report" parent="sale.menu_sale_report" sequence="10"/>
+
+        <menuitem id="menu_sale_partner_registers" name="Partner Registers" sequence="2"
+                  parent="menu_bispro_sale_reports" action="action_partner_registers_report"/>
+
+    <!-- ======== Launch menu Purchase ======== -->
+    <menuitem id="menu_bispro_purchase_reports" name="Bispro Report" parent="purchase.purchase_report" sequence="10"/>
+
+        <menuitem id="menu_purchase_partner_registers" name="Partner Registers" sequence="2"
+                  parent="menu_bispro_purchase_reports" action="action_partner_registers_report"/>
+
+</odoo>

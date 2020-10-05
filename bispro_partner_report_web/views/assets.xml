@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="partner_report assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/bispro_partner_report_web/static/src/css/select2.min.css"/>
+            <link rel="stylesheet" href="/bispro_partner_report_web/static/src/css/b2b_base_report.css"/>
+            <script type="text/javascript" src="/bispro_partner_report_web/static/src/js/select2.full.min.js"/>
+            <script type="text/javascript" src="/bispro_partner_report_web/static/src/js/partner_registers_report.js"/>
+        </xpath>
+    </template>
+</odoo>

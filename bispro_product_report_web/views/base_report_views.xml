@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ======== Launch Action Product Registers Report ======== -->
+
+        <record id="action_product_registers_report" model="ir.actions.client">
+            <field name="name">Product Registers</field>
+            <field name="tag">product_registers_report</field>
+        </record>
+
+    <!-- ======== Launch menu Inventory ======== -->
+    <menuitem id="menu_bispro_warehouse_reports" name="Bispro Reporting" parent="stock.menu_warehouse_report" sequence="99"/>
+
+        <menuitem id="menu_product_registers" name="Product Registers" sequence="1"
+                  parent="menu_bispro_warehouse_reports" action="action_product_registers_report"/>
+
+
+    <!-- ======== Launch menu Sales ======== -->
+
+        <menuitem id="menu_sale_product_registers" name="Product Registers"
+                  parent="bispro_partner_report_web.menu_bispro_sale_reports"
+                  action="action_product_registers_report"/>
+
+    <!-- ======== Launch menu Purchase ======== -->
+
+        <menuitem id="menu_purchase_product_registers" name="Product Registers"
+                  parent="bispro_partner_report_web.menu_bispro_purchase_reports"
+                  action="action_product_registers_report"/>
+
+</odoo>
