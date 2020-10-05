@@ -76,7 +76,7 @@
     <t t-name="EmployeeRegistersContents">
         <div class="b2b_base_report_header">
             <div class="col-xs-12" align="center">
-                <h2>EMPLOYEE REGISTERS (B2B TECHNOLOGY COMPANY LIMITED)</h2>
+                <h2>EMPLOYEE REGISTERS (BISPRO.VN)</h2>
             </div>
         </div>
         <t t-set="lines" t-value="widget.result.lines"/>

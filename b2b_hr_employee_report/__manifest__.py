@@ -1,26 +1,44 @@
 # -*- coding: utf-8 -*-
-# Author: Duongnv
-# License AGPL-3.0 or later (https://b2btech.com.vn).
+#############################################################################
+#
+#    bispro.vn.
+#
+#    Copyright (C) 2020 bispro.vn(<http://bispro.vn)
+#    Author: bispro.vn (<http://bispro.vn)
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+#############################################################################
 
 {
-    'name': 'B2B HR Employee Report',
+    'name': 'BISPRO HR Employee Report',
     'version': '14.0.0.0.0',
-    'category': 'B2B Base',
-    'summary': 'B2B Base Report Setting',
+    'category': 'Human Resources',
+    'summary': 'show web report',
     'description': """
-B2B Base customize and modify:
+BISPRO Base customize and modify:
 =========================
-This module is b2b base module used to all b2b project technology
+This module is Bispro base module used to all Bispro project technology
 
 Key Features
 ------------
 * Base report setting and functions for query and show web report
-* It's also support to export data to Excel file.
 """,
-    'author': 'B2B Technology, DuongNV,',
-    "website": "https://b2btech.com.vn",
+    'author': 'BISPRO.VN,',
+    "website": "http://bispro.vn",
     'depends': [
     ],
+    'images': ["static/description/icon.png"],
     'data': [
         'views/assets.xml',
         'views/base_report_views.xml',
