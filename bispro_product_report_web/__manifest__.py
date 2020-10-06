@@ -34,7 +34,7 @@ Key Features
 ------------
 * Base report setting and functions for query and show web report
 """,
-    'author': 'BISPRO,',
+    'author': 'BISPRO.VN,',
     'website': 'https://bispro.vn',
     'depends': [],
     'images': ["static/description/icon.png"],
